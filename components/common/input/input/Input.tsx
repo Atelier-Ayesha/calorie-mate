@@ -1,17 +1,5 @@
 import { Children, PropsWithChildren, createContext, useContext } from 'react';
 
-// context type
-// context
-// createContext -> default input values
-
-// wrapper -> children 규정
-
-// children
-// input
-// label
-// guideline
-// custom hook
-
 type InputContextProps = {
 	name: string;
 	onChange: () => void;
