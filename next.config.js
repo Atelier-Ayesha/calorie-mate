@@ -5,9 +5,6 @@ const withVanillaExtract = createVanillaExtractPlugin();
 
 const nextConfig = {
 	reactStrictMode: true,
-	compiler: {
-		emotion: true,
-	},
 	webpack(config) {
 		const fileLoaderRule = config.module.rules.find(rule =>
 			rule.test?.test?.('.svg')
