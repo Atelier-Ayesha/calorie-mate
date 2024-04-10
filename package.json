@@ -12,11 +12,14 @@
 		"build-storybook": "storybook build"
 	},
 	"dependencies": {
+		"@react-oauth/google": "^0.12.1",
 		"@tanstack/react-query": "^5.17.19",
 		"@vanilla-extract/css": "^1.14.0",
+		"@vanilla-extract/sprinkles": "^1.6.1",
 		"axios": "^1.6.4",
 		"next": "14.0.4",
 		"react": "^18",
+		"react-apple-signin-auth": "^1.1.0",
 		"react-dom": "^18",
 		"zustand": "^4.4.7"
 	},

@@ -1,8 +1,14 @@
-import { Children, PropsWithChildren, createContext, useContext } from 'react';
+import {
+	ChangeEvent,
+	Children,
+	PropsWithChildren,
+	createContext,
+	useContext,
+} from 'react';
 
 type InputContextProps = {
 	name: string;
-	onChange: () => void;
+	onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 	value: string | number;
 	type: 'password' | 'text' | 'number' | 'email';
 };
