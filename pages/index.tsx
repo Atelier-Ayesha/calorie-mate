@@ -10,8 +10,6 @@ export default function Home() {
 		setFormInput(s => ({ ...s, [name]: value }));
 	};
 
-	console.log(formInput);
-
 	return (
 		<>
 			<main>
