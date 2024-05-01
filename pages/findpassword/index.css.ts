@@ -3,30 +3,38 @@ import { style } from '@vanilla-extract/css';
 export const wrapper = style({
 	display: 'flex',
 	flexDirection: 'column',
-	justifyContent: 'center',
-	alignContent: 'center',
-	maxWidth: '360px',
+	marginTop: '108px',
 	padding: '0 16px',
 });
 
-export const imageBox = style({
-	display: 'flex',
-	justifyContent: 'center',
-	alignItems: 'center',
-	margin: '120px 25px 48px',
-});
-
-export const image = style({
-	maxWidth: '300px',
-});
-
-export const textBox = style({
+export const description = style({
 	display: 'flex',
 	flexDirection: 'column',
-	justifyContent: 'center',
-	alignItems: 'center',
-	gap: '4px',
-	margin: '24px 0 48px',
+	gap: '12px',
+});
+
+export const pageTitle = style({
+	fontFamily: 'Pretendard',
+	fontWeight: 500,
+	fontSize: '20px',
+	lineHeight: '24px',
+	color: '#252525',
+});
+
+export const pageDesc = style({
+	fontFamily: 'Pretendard',
+	fontWeight: 300,
+	fontSize: '14px',
+	lineHeight: '18px',
+	color: '#252525',
+	whiteSpace: 'pre-wrap',
+});
+
+export const form = style({
+	display: 'flex',
+	flexDirection: 'column',
+	marginTop: '24px',
+	gap: '20px',
 });
 
 export const button = style({
@@ -41,4 +49,5 @@ export const button = style({
 	border: 'none',
 	outline: 'none',
 	cursor: 'pointer',
+	margin: '12px 0',
 });

@@ -5,6 +5,7 @@ import {
 	createContext,
 	useContext,
 } from 'react';
+import * as styles from './input.css';
 
 type InputContextProps = {
 	name: string;
@@ -46,13 +47,25 @@ const InputWrapper = (props: InputProps) => {
 
 const Input = ({ ...props }) => {
 	const { name, onChange, value, type } = useInputContext();
-	return <input name={name} onChange={onChange} value={value} type={type} />;
+	return (
+		<input
+			className={styles.input}
+			name={name}
+			onChange={onChange}
+			value={value}
+			type={type}
+		/>
+	);
 };
 
 const Label = ({ children, ...props }: PropsWithChildren<{}>) => {
 	const { name } = useInputContext();
 
-	return <label htmlFor={name}>{children}</label>;
+	return (
+		<label className={styles.label} htmlFor={name}>
+			{children}
+		</label>
+	);
 };
 
 InputWrapper.Input = Input;
