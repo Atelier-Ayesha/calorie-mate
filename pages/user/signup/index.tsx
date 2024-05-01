@@ -3,7 +3,7 @@ import InputWrapper from '@/components/common/input/input/Input';
 import * as styles from './index.css';
 import { ChangeEvent, useState } from 'react';
 
-export default function SignUp() {
+export default function SignUpPage() {
 	const [formInput, setFormInput] = useState({
 		email: '',
 		password: '',
