@@ -1,5 +1,5 @@
 import { Header } from '@/components/common/header/Header';
-import InputWrapper from '@/components/common/input/input/Input';
+import InputWrapper from '@/components/common/input/Input';
 import * as styles from './index.css';
 import { ChangeEvent, useState } from 'react';
 
