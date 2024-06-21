@@ -1,4 +1,4 @@
-export const font = {
+export const fonts = {
 	light10: {
 		fontWeight: 400,
 		fontSize: '10px',
