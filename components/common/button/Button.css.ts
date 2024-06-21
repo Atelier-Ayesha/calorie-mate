@@ -12,6 +12,7 @@ export const button = recipe({
 		borderRadius: '4px',
 		border: 'none',
 		outline: 'none',
+		cursor: 'pointer',
 		...fonts.semibold16,
 	},
 
