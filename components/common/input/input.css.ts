@@ -13,7 +13,6 @@ export const label = style({
 });
 
 export const input = style({
-	width: '330px',
 	height: '44px',
 	background: '#F6F6F6',
 	padding: '12px 16px',
