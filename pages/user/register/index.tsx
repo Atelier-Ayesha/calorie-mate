@@ -1,13 +1,17 @@
 import { Header } from '@/components/common/header/Header';
 import InputWrapper from '@/components/common/input/Input';
 import * as styles from './index.css';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
+import { API } from '@/api';
+import { useRouter } from 'next/navigation';
+import { CommonLayout } from '@/components/common/layout/Layout';
 
-export default function SignUpPage() {
+export default function RegisterPage() {
+	const router = useRouter();
 	const [formInput, setFormInput] = useState({
 		email: '',
 		password: '',
-		comfirmPassword: '',
+		confirmPassword: '',
 		username: '',
 	});
 
@@ -15,11 +19,22 @@ export default function SignUpPage() {
 		const { name, value } = e.target;
 		setFormInput(s => ({ ...s, [name]: value }));
 	};
-	return (
-		<section className={styles.wrapper}>
-			<Header headerName='회원가입' />
 
-			<form className={styles.form}>
+	const handleSubmit = async (e: FormEvent) => {
+		e.preventDefault();
+
+		try {
+			await API.Auth.register(formInput);
+			router.push('/user/register/sendmail');
+			return;
+		} catch (error) {
+			// TODO: Sentry 설치하면 여기다 반영;
+		}
+	};
+
+	return (
+		<CommonLayout header={<Header headerName='회원가입' />}>
+			<form className={styles.form} onSubmit={handleSubmit}>
 				<InputWrapper
 					name='email'
 					onChange={e => handleInputChange(e)}
@@ -43,9 +58,9 @@ export default function SignUpPage() {
 					</InputWrapper.Label>
 				</InputWrapper>
 				<InputWrapper
-					name='comfirmPassword'
+					name='confirmPassword'
 					onChange={e => handleInputChange(e)}
-					value={formInput.comfirmPassword}
+					value={formInput.confirmPassword}
 					type='password'
 				>
 					<InputWrapper.Label>
@@ -64,8 +79,10 @@ export default function SignUpPage() {
 						<InputWrapper.Input />
 					</InputWrapper.Label>
 				</InputWrapper>
-				<button className={styles.button}>가입하기</button>
+				<button type='submit' className={styles.button}>
+					가입하기
+				</button>
 			</form>
-		</section>
+		</CommonLayout>
 	);
 }
