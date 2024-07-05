@@ -6,7 +6,7 @@ import { ChangeEvent, useState } from 'react';
 export default function ResetPage() {
 	const [formInput, setFormInput] = useState({
 		password: '',
-		comfirmPassword: '',
+		confirmPassword: '',
 	});
 
 	const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -38,9 +38,9 @@ export default function ResetPage() {
 					</InputWrapper.Label>
 				</InputWrapper>
 				<InputWrapper
-					name='comfirmPassword'
+					name='confirmPassword'
 					onChange={e => handleInputChange(e)}
-					value={formInput.comfirmPassword}
+					value={formInput.confirmPassword}
 					type='password'
 				>
 					<InputWrapper.Label>
