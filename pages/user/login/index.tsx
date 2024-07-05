@@ -2,6 +2,7 @@ import { Header } from '@/components/common/header/Header';
 import InputWrapper from '@/components/common/input/Input';
 import * as styles from './index.css';
 import { ChangeEvent, useState } from 'react';
+import { CommonLayout } from '@/components/common/layout/Layout';
 
 export default function LoginPage() {
 	const [formInput, setFormInput] = useState({ email: '', password: '' });
@@ -11,9 +12,7 @@ export default function LoginPage() {
 		setFormInput(s => ({ ...s, [name]: value }));
 	};
 	return (
-		<section className={styles.wrapper}>
-			<Header headerName='로그인' />
-
+		<CommonLayout header={<Header headerName='로그인' />}>
 			<form className={styles.form}>
 				<InputWrapper
 					name='email'
@@ -42,6 +41,6 @@ export default function LoginPage() {
 			<button className={styles.findPWButton}>
 				비밀번호가 기억나지 않으세요?
 			</button>
-		</section>
+		</CommonLayout>
 	);
 }
