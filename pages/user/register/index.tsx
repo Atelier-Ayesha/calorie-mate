@@ -12,7 +12,7 @@ export default function RegisterPage() {
 		email: '',
 		password: '',
 		confirmPassword: '',
-		username: '',
+		nickName: '',
 	});
 
 	const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -69,9 +69,9 @@ export default function RegisterPage() {
 					</InputWrapper.Label>
 				</InputWrapper>
 				<InputWrapper
-					name='username'
+					name='nickName'
 					onChange={e => handleInputChange(e)}
-					value={formInput.username}
+					value={formInput.nickName}
 					type='text'
 				>
 					<InputWrapper.Label>

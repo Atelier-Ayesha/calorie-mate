@@ -3,7 +3,7 @@ export namespace AuthAPI {
 		email: string;
 		password: string;
 		confirmPassword?: string;
-		username: string;
+		nickName: string;
 	}
 	export type TLogin = Pick<ICredential, 'email' | 'password'>;
 	export type TUserMail = Pick<ICredential, 'email'>;
