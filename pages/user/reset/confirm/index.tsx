@@ -1,5 +1,6 @@
 import { Header } from '@/components/common/header/Header';
 import * as styles from './index.css';
+import Link from 'next/link';
 
 export default function ResetConfirmPage() {
 	return (
@@ -12,7 +13,9 @@ export default function ResetConfirmPage() {
 				}
 			</p>
 
-			<button className={styles.button}>로그인 화면으로 이동</button>
+			<Link className={styles.button} href='/user/login'>
+				로그인 화면으로 이동
+			</Link>
 		</section>
 	);
 }
