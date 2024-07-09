@@ -1,13 +1,19 @@
 import { style } from '@vanilla-extract/css';
 
-export const wrapper = style({
+const wrapper = style({
+	display: 'flex',
+	flexDirection: 'column',
+});
+
+const form = style({
 	display: 'flex',
 	flexDirection: 'column',
 	marginTop: '108px',
 	padding: '0 16px',
+	gap: '20px',
 });
 
-export const button = style({
+const button = style({
 	backgroundColor: '#A35ADD',
 	height: '44px',
 	width: '100%',
@@ -22,7 +28,7 @@ export const button = style({
 	margin: '12px 0',
 });
 
-export const findPWButton = style({
+const findPasswordButton = style({
 	background: 'none',
 	fontFamily: 'Pretendard',
 	fontWeight: 400,
@@ -33,3 +39,11 @@ export const findPWButton = style({
 	border: 'none',
 	outline: 'none',
 });
+
+const styles = {
+	form,
+	button,
+	findPasswordButton,
+};
+
+export default styles;
