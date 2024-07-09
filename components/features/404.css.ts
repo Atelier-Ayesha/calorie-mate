@@ -42,3 +42,13 @@ export const button = style({
 	outline: 'none',
 	cursor: 'pointer',
 });
+
+const styles = {
+	wrapper,
+	imageBox,
+	image,
+	textBox,
+	button,
+};
+
+export default styles;
