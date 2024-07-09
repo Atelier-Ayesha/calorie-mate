@@ -16,7 +16,7 @@ export default function LoginPage() {
 
 	const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = e.target;
-		setFormInput(s => ({ ...s, [name]: value }));
+		setFormInput((s) => ({ ...s, [name]: value }));
 	};
 
 	const handleSubmit = async (e: FormEvent) => {
@@ -37,7 +37,7 @@ export default function LoginPage() {
 			<form className={styles.form} onSubmit={handleSubmit}>
 				<InputWrapper
 					name='email'
-					onChange={e => handleInputChange(e)}
+					onChange={(e) => handleInputChange(e)}
 					value={formInput.email}
 					type='text'
 				>
@@ -48,7 +48,7 @@ export default function LoginPage() {
 				</InputWrapper>
 				<InputWrapper
 					name='password'
-					onChange={e => handleInputChange(e)}
+					onChange={(e) => handleInputChange(e)}
 					value={formInput.password}
 					type='password'
 				>
