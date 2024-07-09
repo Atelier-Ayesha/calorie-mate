@@ -1,15 +1,32 @@
+'use client';
 import { Header } from '@/components/common/header/Header';
 import InputWrapper from '@/components/common/input/Input';
 import * as styles from './index.css';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
+import { API } from '@/api';
+import { useRouter } from 'next/navigation';
 
 export default function FindPage() {
+	const router = useRouter();
 	const [formInput, setFormInput] = useState({ email: '' });
 
 	const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = e.target;
 		setFormInput(s => ({ ...s, [name]: value }));
 	};
+
+	const handleSubmit = async (e: FormEvent) => {
+		e.preventDefault();
+
+		try {
+			await API.Auth.sendmail(formInput);
+			router.push('/user/find/confirm');
+			return;
+		} catch (error) {
+			// TODO: Sentry 설치하면 여기다 반영;
+		}
+	};
+
 	return (
 		<section className={styles.wrapper}>
 			<Header headerName='비밀번호 찾기' />
@@ -20,7 +37,7 @@ export default function FindPage() {
 				</p>
 			</div>
 
-			<form className={styles.form}>
+			<form className={styles.form} onSubmit={handleSubmit}>
 				<InputWrapper
 					name='email'
 					onChange={e => handleInputChange(e)}
@@ -32,7 +49,9 @@ export default function FindPage() {
 						<InputWrapper.Input />
 					</InputWrapper.Label>
 				</InputWrapper>
-				<button className={styles.button}>이메일 보내기</button>
+				<button type='submit' className={styles.button}>
+					이메일 보내기
+				</button>
 			</form>
 		</section>
 	);
