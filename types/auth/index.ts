@@ -1,8 +1,11 @@
 export namespace AuthAPI {
-	export interface ISignUp {
+	export interface ICredential {
 		email: string;
 		password: string;
-		confirmPassword: string;
+		confirmPassword?: string;
 		username: string;
 	}
+	export type TLogin = Pick<ICredential, 'email' | 'password'>;
+	export type TUserMail = Pick<ICredential, 'email'>;
+	export type TResetPassword = Pick<ICredential, 'password'>;
 }
