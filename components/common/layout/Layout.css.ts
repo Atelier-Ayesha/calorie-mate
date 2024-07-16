@@ -3,5 +3,5 @@ import { style } from '@vanilla-extract/css';
 export const layout = style({
 	display: 'flex',
 	flexDirection: 'column',
-	maxWidth: '360px',
+	maxWidth: '100%',
 });
