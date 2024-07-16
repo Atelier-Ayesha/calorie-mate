@@ -4,7 +4,7 @@
 	"private": true,
 	"scripts": {
 		"dev": "next dev",
-		"build": "next build && pm2 start npm --name 'CLIENT' start",
+		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
 		"test": "jest --watch",
