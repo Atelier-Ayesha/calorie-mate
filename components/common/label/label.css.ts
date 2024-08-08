@@ -7,5 +7,5 @@ export const label = css`
 	font-family: 'Pretendard';
 	color: #252525;
 	gap: 8px;
-	${{ ...fonts.medium12 }}
+	${fonts.medium12}
 `;

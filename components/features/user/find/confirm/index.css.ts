@@ -1,3 +1,4 @@
+import { fonts } from '@/style/fonts/fonts';
 import { css } from '@emotion/css';
 
 const wrapper = css`
@@ -10,17 +11,13 @@ const wrapper = css`
 
 const pageTitle = css`
 	font-family: 'Pretendard';
-	font-weight: 500;
-	font-size: 20px;
-	line-height: 24px;
+	${fonts.medium20}
 	color: #252525;
 `;
 
 const pageDesc = css`
 	font-family: 'Pretendard';
-	font-weight: 300;
-	font-size: 14px;
-	line-height: 18px;
+	${fonts.light14}
 	color: #252525;
 	white-space: pre-wrap;
 `;

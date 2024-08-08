@@ -59,14 +59,14 @@ export const iconArea = css`
 `;
 
 export const title = css`
-	${{ ...fonts.semibold20 }}
+	${fonts.semibold20}
 	font-family: "Pretendard";
 	color: #252525;
 	margin: 8px 0;
 `;
 
 export const content = css`
-	${{ ...fonts.light14 }}
+	${fonts.light14}
 	font-family: "Pretendard";
 	color: #252525;
 	margin: 12px 0;
