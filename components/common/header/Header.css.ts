@@ -1,3 +1,4 @@
+import { colors } from '@/style/colors/colors';
 import { css } from '@emotion/css';
 
 export const wrapper = css`
@@ -13,8 +14,8 @@ export const topBox = css`
 	align-items: center;
 	width: 100%;
 	height: 72px;
-	color: #fff;
-	background-color: #7024ad;
+	color: ${colors.white};
+	background-color: ${colors.secondary};
 	padding-left: 20px;
 	padding-right: 20px;
 `;
@@ -22,9 +23,9 @@ export const topBox = css`
 export const triangle = css`
 	width: 0;
 	height: 0;
-	border-top: 12px solid #7024ad;
+	border-top: 12px solid ${colors.secondary};
 	border-left: 100vw solid transparent;
-	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+	filter: drop-shadow(0px 4px 4px ${colors.overlay});
 `;
 
 export const backArea = css`
