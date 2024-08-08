@@ -1,8 +1,9 @@
 import { css } from '@emotion/css';
 
-export const layout = css`
+export const form = css`
 	display: flex;
 	flex-direction: column;
-	max-width: 100%;
-	height: 100vh;
+	margin-top: 108px;
+	padding: 0 16px;
+	gap: 20px;
 `;
