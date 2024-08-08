@@ -1,3 +1,4 @@
+import { colors } from '@/style/colors/colors';
 import { fonts } from '@/style/fonts/fonts';
 import { css } from '@emotion/css';
 
@@ -7,7 +8,7 @@ const findPasswordButton = css`
 	border: none;
 	outline: none;
 	margin-top: 16px;
-	color: #7f7f7f;
+	color: ${colors.textLighten};
 	${fonts.light12}
 `;
 
@@ -20,7 +21,7 @@ const bottomBox = css`
 	margin-top: auto;
 	margin-bottom: 24px;
 	gap: 8px;
-	color: #7f7f7f;
+	color: ${colors.textLighten};
 	${fonts.light12}
 `;
 

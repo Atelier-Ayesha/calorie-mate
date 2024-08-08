@@ -11,7 +11,7 @@ export const button = css`
 	border: none;
 	outline: none;
 	cursor: pointer;
-	${{ ...fonts.semibold16 }}
+	${fonts.semibold16};
 `;
 
 // variants: {
@@ -24,14 +24,14 @@ export const button = css`
 // 		tertiay: { backgroundColor: #C699EA; color: #FFFFFF },
 // 		quarternary: {
 // 			backgroundColor: #E9D8F7;
-// 			color: #252525;
+// 			color: ${colors.text};
 // 		},
 // 		border: {
 // 			backgroundColor: #FFFFFF;
 // 			border: 1px solid #C1C1C1;
-// 			color: #252525;
+// 			color: ${colors.text};
 // 		},
 // 		invalid: { backgroundColor: #C1C1C1; color: #ffffff },
-// 		cancel: { backgroundColor: #FFFFFF; color: #252525 },
+// 		cancel: { backgroundColor: #FFFFFF; color: ${colors.text} },
 // 	},
 // },

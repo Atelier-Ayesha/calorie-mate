@@ -1,10 +1,11 @@
+import { colors } from '@/style/colors/colors';
 import { fonts } from '@/style/fonts/fonts';
 import { css } from '@emotion/css';
 
 export const overlay = css`
 	width: 100%;
 	height: 100vh;
-	background-color: #0000004d;
+	background-color: ${colors.overlay};
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -14,7 +15,7 @@ export const overlay = css`
 `;
 
 export const container = css`
-	background-color: #ffffff;
+	background-color: ${colors.white};
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -61,14 +62,14 @@ export const iconArea = css`
 export const title = css`
 	${fonts.semibold20}
 	font-family: "Pretendard";
-	color: #252525;
+	color: ${colors.text};
 	margin: 8px 0;
 `;
 
 export const content = css`
 	${fonts.light14}
 	font-family: "Pretendard";
-	color: #252525;
+	color: ${colors.text};
 	margin: 12px 0;
 `;
 
