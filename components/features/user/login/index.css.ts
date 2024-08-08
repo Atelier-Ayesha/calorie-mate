@@ -1,49 +1,53 @@
-import { style } from '@vanilla-extract/css';
+import { fonts } from '@/style/fonts/fonts';
+import { css } from '@emotion/css';
 
-const wrapper = style({
-	display: 'flex',
-	flexDirection: 'column',
-});
+const findPasswordButton = css`
+	background: none;
+	cursor: pointer;
+	border: none;
+	outline: none;
+	margin-top: 16px;
+	color: #7f7f7f;
+	${{ ...fonts.light12 }}
+`;
 
-const form = style({
-	display: 'flex',
-	flexDirection: 'column',
-	marginTop: '108px',
-	padding: '0 16px',
-	gap: '20px',
-});
+const bottomBox = css`
+	display: flex;
+	flex-direction: column;
+	padding: 0 16px;
+	justify-content: center;
+	align-items: center;
+	margin-top: auto;
+	margin-bottom: 24px;
+	gap: 8px;
+	color: #7f7f7f;
+	${{ ...fonts.light12 }};
+`;
 
-const button = style({
-	backgroundColor: '#A35ADD',
-	height: '44px',
-	width: '100%',
-	fontSize: '14px',
-	lineHeight: '20px',
-	fontFamily: 'Pretendard',
-	borderRadius: '4px',
-	color: '#FFF',
-	border: 'none',
-	outline: 'none',
-	cursor: 'pointer',
-	margin: '12px 0',
-});
+const rowBox = css`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 32px;
+	margin-bottom: 8px;
+`;
 
-const findPasswordButton = style({
-	background: 'none',
-	fontFamily: 'Pretendard',
-	fontWeight: 400,
-	fontSize: '12px',
-	lineHeight: '16px',
-	color: '#7F7F7F',
-	cursor: 'pointer',
-	border: 'none',
-	outline: 'none',
-});
+const oauthButton = css`
+	height: 32px;
+	width: 32px;
+	border-radius: 100%;
+	border: none;
+	outline: none;
+	padding: 0px;
+	margin: 0px;
+	cursor: pointer;
+`;
 
 const styles = {
-	form,
-	button,
 	findPasswordButton,
+	bottomBox,
+	rowBox,
+	oauthButton,
 };
 
 export default styles;
