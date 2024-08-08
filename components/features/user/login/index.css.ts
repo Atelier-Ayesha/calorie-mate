@@ -8,7 +8,7 @@ const findPasswordButton = css`
 	outline: none;
 	margin-top: 16px;
 	color: #7f7f7f;
-	${{ ...fonts.light12 }}
+	${fonts.light12}
 `;
 
 const bottomBox = css`
@@ -21,7 +21,7 @@ const bottomBox = css`
 	margin-bottom: 24px;
 	gap: 8px;
 	color: #7f7f7f;
-	${{ ...fonts.light12 }};
+	${fonts.light12}
 `;
 
 const rowBox = css`

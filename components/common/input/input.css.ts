@@ -10,5 +10,5 @@ export const input = css`
 	box-sizing: border-box;
 	font-family: 'Pretendard';
 	color: #252525;
-	${{ ...fonts.medium14 }};
+	${fonts.medium14};
 `;
