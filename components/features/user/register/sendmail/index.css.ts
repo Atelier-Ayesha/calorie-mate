@@ -1,14 +1,8 @@
-import { style } from '@vanilla-extract/css';
+import { css } from '@emotion/css';
 
-const wrapper = style({
-	display: 'flex',
-	flexDirection: 'column',
-	marginTop: '108px',
-	padding: '0 16px',
-});
-
-const styles = {
-	wrapper,
-};
-
-export default styles;
+export const wrapper = css`
+	display: flex;
+	flex-direction: column;
+	margin-top: 108px;
+	padding: 0 16px;
+`;

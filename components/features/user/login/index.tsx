@@ -1,29 +1,24 @@
 import { Header } from '@/components/common/header/Header';
-import InputWrapper from '@/components/common/input/Input';
 import styles from './index.css';
-import { ChangeEvent, FormEvent, useState } from 'react';
 import { CommonLayout } from '@/components/common/layout/Layout';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/router';
 import { API } from '@/api';
 import { AuthAPI } from '@/types/auth';
+import { Button } from '@/components/common/button/Button';
+import { AppleIcon, GoogleIcon } from '@/assets/icons/icons';
+import { emailRegExp, passwordRegExp } from '@/utils/regex';
+import Form from '@/components/common/form/form';
+import Label from '@/components/common/label/label';
+import Input from '@/components/common/input/Input';
+import { SubmitHandler, useForm } from 'react-hook-form';
 
 export default function LoginRoot() {
 	const router = useRouter();
-	const [formInput, setFormInput] = useState<AuthAPI.TLogin>({
-		email: '',
-		password: '',
-	});
+	const { register, handleSubmit } = useForm<AuthAPI.TLogin>();
 
-	const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-		const { name, value } = e.target;
-		setFormInput((s) => ({ ...s, [name]: value }));
-	};
-
-	const handleSubmit = async (e: FormEvent) => {
-		e.preventDefault();
-
+	const onSubmit: SubmitHandler<AuthAPI.TLogin> = async (data) => {
 		try {
-			const loginState = await API.Auth.login(formInput);
+			const loginState = await API.Auth.login(data);
 			// TODO: 온보딩 진행 여부에 따라 route 분기처리
 			router.push('/main');
 			return;
@@ -32,36 +27,63 @@ export default function LoginRoot() {
 		}
 	};
 
+	const handleMoveToRegister = () => {
+		router.push('/user/register');
+	};
+
+	const handleMoveToFind = () => {
+		router.push('/user/find');
+	};
+
 	return (
 		<CommonLayout header={<Header headerName='로그인' />}>
-			<form className={styles.form} onSubmit={handleSubmit}>
-				<InputWrapper
-					name='email'
-					onChange={(e) => handleInputChange(e)}
-					value={formInput.email}
-					type='text'
-				>
-					<InputWrapper.Label>
-						이메일
-						<InputWrapper.Input />
-					</InputWrapper.Label>
-				</InputWrapper>
-				<InputWrapper
-					name='password'
-					onChange={(e) => handleInputChange(e)}
-					value={formInput.password}
-					type='password'
-				>
-					<InputWrapper.Label>
-						비밀번호
-						<InputWrapper.Input />
-					</InputWrapper.Label>
-				</InputWrapper>
-				<button className={styles.button}>홈 화면으로 이동</button>
-			</form>
-			<button type='submit' className={styles.findPasswordButton}>
+			<Form onSubmit={handleSubmit(onSubmit)}>
+				<Label htmlFor='email'>이메일</Label>
+				<Input
+					id='email'
+					{...register('email', { pattern: emailRegExp })}
+					required
+				/>
+
+				<Label htmlFor='password'>비밀번호</Label>
+				<Input
+					id='password'
+					{...register('password', { pattern: passwordRegExp })}
+					required
+				/>
+
+				<Button colorTheme='primary'>로그인</Button>
+			</Form>
+			<button
+				type='button'
+				className={styles.findPasswordButton}
+				onClick={handleMoveToFind}
+			>
 				비밀번호가 기억나지 않으세요?
 			</button>
+
+			<div className={styles.bottomBox}>
+				<span>- 소셜 계정으로 로그인 -</span>
+				<div className={styles.rowBox}>
+					<button
+						title='구글 계정으로 로그인'
+						className={styles.oauthButton}
+						type='button'
+					>
+						<GoogleIcon />
+					</button>
+					<button
+						title='애플 계정으로 로그인'
+						className={styles.oauthButton}
+						type='button'
+					>
+						<AppleIcon />
+					</button>
+				</div>
+				<Button colorTheme='border' onClick={handleMoveToRegister}>
+					이메일로 가입하기
+				</Button>
+			</div>
 		</CommonLayout>
 	);
 }
