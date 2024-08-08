@@ -1,16 +1,20 @@
-import { globalStyle } from '@vanilla-extract/css';
+import { css } from '@emotion/react';
 
-globalStyle('*', {
-	margin: 0,
-	padding: 0,
-	boxSizing: 'border-box',
-	fontFamily: 'Pretendard Variable',
-});
+const globalStyle = css`
+	html,
+	body {
+		height: '100%';
+	}
+	ol,
+	ul {
+		list-style: none;
+	}
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		font-family: 'Pretendard Variable';
+	}
+`;
 
-globalStyle('ol,ul', {
-	listStyle: 'none',
-});
-
-globalStyle('html , body', {
-	height: '100%',
-});
+export default globalStyle;

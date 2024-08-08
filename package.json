@@ -12,17 +12,16 @@
 		"build-storybook": "storybook build"
 	},
 	"dependencies": {
+		"@emotion/css": "^11.13.0",
+		"@emotion/react": "^11.13.0",
 		"@react-oauth/google": "^0.12.1",
 		"@tanstack/react-query": "^5.17.19",
-		"@vanilla-extract/css": "^1.14.0",
-		"@vanilla-extract/css-utils": "^0.1.4",
-		"@vanilla-extract/recipes": "^0.5.3",
-		"@vanilla-extract/sprinkles": "^1.6.1",
 		"axios": "^1.6.4",
 		"next": "14.0.4",
 		"react": "^18",
 		"react-apple-signin-auth": "^1.1.0",
 		"react-dom": "^18",
+		"react-hook-form": "^7.52.2",
 		"zustand": "^4.4.7"
 	},
 	"devDependencies": {
