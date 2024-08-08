@@ -1,25 +1,14 @@
 import { fonts } from '@/style/fonts/fonts';
-import { vars } from '@/style/theme/theme.css';
-import { style } from '@vanilla-extract/css';
-import { versions } from 'process';
+import { css } from '@emotion/css';
 
-export const label = style({
-	display: 'flex',
-	flexDirection: 'column',
-	fontFamily: vars.font.body,
-	color: vars.color.text,
-	gap: '8px',
-	...fonts.medium12,
-});
-
-export const input = style({
-	height: '44px',
-	background: '#F6F6F6',
-	padding: '12px 16px',
-	border: '1px solid ' + vars.color.text,
-	borderRadius: '4px',
-	boxSizing: 'border-box',
-	fontFamily: vars.font.body,
-	color: vars.color.text,
-	...fonts.medium14,
-});
+export const input = css`
+	height: 44px;
+	background: #f6f6f6;
+	padding: 12px 16px;
+	border: 1px solid #252525;
+	border-radius: 4px;
+	box-sizing: border-box;
+	font-family: 'Pretendard';
+	color: #252525;
+	${{ ...fonts.medium14 }};
+`;
