@@ -7,5 +7,9 @@ export namespace AuthAPI {
 	}
 	export type TLogin = Pick<ICredential, 'email' | 'password'>;
 	export type TUserMail = Pick<ICredential, 'email'>;
-	export type TResetPassword = Pick<ICredential, 'password'>;
+	export type TVerify = Pick<ICredential, 'email'> & { code: number };
+	export type TResetPassword = Pick<
+		ICredential,
+		'password' | 'confirmPassword'
+	>;
 }
