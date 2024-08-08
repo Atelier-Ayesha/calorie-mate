@@ -1,85 +1,80 @@
 import { fonts } from '@/style/fonts/fonts';
-import { vars } from '@/style/theme/theme.css';
-import { style } from '@vanilla-extract/css';
-import { calc } from '@vanilla-extract/css-utils';
-import { recipe } from '@vanilla-extract/recipes';
+import { css } from '@emotion/css';
 
-export const overlay = style({
-	width: '100%',
-	height: '100vh',
-	backgroundColor: '#0000004D',
-	display: 'flex',
-	justifyContent: 'center',
-	alignItems: 'center',
-	position: 'absolute',
-	zIndex: 10,
-	top: 0,
-});
+export const overlay = css`
+	width: 100%;
+	height: 100vh;
+	background-color: #0000004d;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	z-index: 10;
+	top: 0;
+`;
 
-export const container = style({
-	backgroundColor: '#FFFFFF',
-	display: 'flex',
-	flexDirection: 'column',
-	justifyContent: 'center',
-	alignItems: 'center',
-	textAlign: 'center',
-	border: 'none',
-	borderRadius: '8px',
-	height: 'auto',
-	width: calc.subtract('100%', '60px'),
-	maxWidth: '300px',
-	padding: '24px 16px',
-	position: 'absolute',
-	zIndex: 20,
-});
+export const container = css`
+	background-color: #ffffff;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	border: none;
+	border-radius: 8px;
+	height: auto;
+	width: calc(100% - 60px);
+	max-width: 300px;
+	padding: 24px 16px;
+	position: absolute;
+	z-index: 20;
+`;
 
-export const modalHeader = recipe({
-	base: {
-		height: '2px',
-		width: '200px',
-		position: 'relative',
-		borderRadius: '8px',
-		display: 'flex',
-		justifyContent: 'center',
-		margin: '8px 0',
-	},
+export const modalHeader = css`
+	height: 2px;
+	width: 200px;
+	position: relative;
+	border-radius: 8px;
+	display: flex;
+	justify-content: center;
+	margin: 8px 0;
+`;
 
-	variants: {
-		color: {
-			alert: { backgroundColor: '#C80000' },
-			confirm: { backgroundColor: '#5DAE48' },
-			info: { backgroundColor: '#4285F4' },
-		},
-	},
-});
+// variants: {
+// 	color: {
+// 		alert: { background-color: #C80000 },
+// 		confirm: { background-color: #5DAE48 },
+// 		info: { background-color: #4285F4 },
+// 	},
+// },
 
-export const iconArea = style({
-	position: 'absolute',
-	zIndex: 5,
-	top: '-11px',
-	borderRadius: '50%',
-	background: 'white',
-	height: '24px',
-	width: '24px',
-});
+export const iconArea = css`
+	position: absolute;
+	z-index: 5;
+	top: -11px;
+	border-radius: 50%;
+	background: white;
+	height: 24px;
+	width: 24px;
+`;
 
-export const title = style({
-	...fonts.semibold20,
-	fontFamily: vars.font.body,
-	color: vars.color.text,
-	margin: '8px 0',
-});
+export const title = css`
+	${{ ...fonts.semibold20 }}
+	font-family: "Pretendard";
+	color: #252525;
+	margin: 8px 0;
+`;
 
-export const content = style({
-	...fonts.light14,
-	fontFamily: vars.font.body,
-	color: vars.color.text,
-	margin: '12px 0',
-});
+export const content = css`
+	${{ ...fonts.light14 }}
+	font-family: "Pretendard";
+	color: #252525;
+	margin: 12px 0;
+`;
 
-export const buttonArea = style({
-	display: 'flex',
-	width: '100%',
-	gap: '16px',
-	marginTop: '20px',
-});
+export const buttonArea = css`
+	display: flex;
+	width: 100%;
+	gap: 16px;
+	margin-top: 20px;
+`;

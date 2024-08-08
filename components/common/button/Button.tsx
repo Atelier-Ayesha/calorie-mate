@@ -9,13 +9,14 @@ type Props = ButtonHTMLAttributes<HTMLButtonElement> &
 			| 'tertiay'
 			| 'quarternary'
 			| 'invalid'
+			| 'border'
 			| 'cancel';
 	}>;
 
 export function Button(props: Props) {
 	const { colorTheme, children, ...rest } = props;
 	return (
-		<button className={button({ color: colorTheme })} {...rest}>
+		<button className={button} {...rest}>
 			{children}
 		</button>
 	);
