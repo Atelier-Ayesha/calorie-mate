@@ -3,9 +3,9 @@ import { CommonLayout } from '@/components/common/layout/Layout';
 import { useRouter } from 'next/router';
 import { API } from '@/api';
 import { Button } from '@/components/common/button/Button';
-import Label from '@/components/common/label/label';
+import Label from '@/components/common/label/Label';
 import Input from '@/components/common/input/Input';
-import Form from '@/components/common/form/form';
+import Form from '@/components/common/form/Form';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { AuthAPI } from '@/types/auth';
 

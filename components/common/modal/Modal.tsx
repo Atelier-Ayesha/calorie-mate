@@ -1,6 +1,11 @@
 'use client';
 import { AlertIcon, ConfirmIcon, InfoIcon } from '@/assets/icons/icons';
-import { PropsWithChildren, createContext, useContext, useState } from 'react';
+import React, {
+	PropsWithChildren,
+	createContext,
+	useContext,
+	useState,
+} from 'react';
 import {
 	buttonArea,
 	container,
@@ -9,7 +14,7 @@ import {
 	iconArea,
 	modalHeader,
 	title,
-} from './Modal.css';
+} from './Modal';
 import Portal from './Portal';
 import { Button } from '../button/Button';
 

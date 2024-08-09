@@ -6,9 +6,9 @@ import { emailRegExp, nickNameRegExp, passwordRegExp } from '@/utils/regex';
 import { Button } from '@/components/common/button/Button';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { AuthAPI } from '@/types/auth';
-import Form from '@/components/common/form/form';
-import Label from '@/components/common/label/label';
 import Input from '@/components/common/input/Input';
+import Form from '@/components/common/form/Form';
+import Label from '@/components/common/label/Label';
 
 export default function RegisterRoot() {
 	const router = useRouter();

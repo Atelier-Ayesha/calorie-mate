@@ -1,16 +1,15 @@
-'use client';
 import { Header } from '@/components/common/header/Header';
-import styles from './index.css';
 import { API } from '@/api';
 import { useRouter } from 'next/router';
-import Label from '@/components/common/label/label';
+import Label from '@/components/common/label/Label';
 import Input from '@/components/common/input/Input';
-import Form from '@/components/common/form/form';
+import Form from '@/components/common/form/Form';
 import { AuthAPI } from '@/types/auth';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { emailRegExp } from '@/utils/regex';
 import { Button } from '@/components/common/button/Button';
 import { CommonLayout } from '@/components/common/layout/Layout';
+import styles from './index.style';
 
 export default function FindRoot() {
 	const router = useRouter();

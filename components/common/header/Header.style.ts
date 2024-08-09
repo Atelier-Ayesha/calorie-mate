@@ -27,13 +27,3 @@ export const triangle = css`
 	border-left: 100vw solid transparent;
 	filter: drop-shadow(0px 4px 4px ${colors.overlay});
 `;
-
-export const backArea = css`
-	width: 36px;
-`;
-
-export const title = css``;
-
-export const menuArea = css`
-	margin: 16px 16px 16px 0;
-`;
