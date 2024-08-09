@@ -1,8 +1,7 @@
-'use client';
 import { Header } from '@/components/common/header/Header';
-import styles from './index.css';
 import { CommonLayout } from '@/components/common/layout/Layout';
 import { Button } from '@/components/common/button/Button';
+import styles from './index.style';
 
 export default function ResetConfirmRoot() {
 	return (

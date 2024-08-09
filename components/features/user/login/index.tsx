@@ -1,5 +1,4 @@
 import { Header } from '@/components/common/header/Header';
-import styles from './index.css';
 import { CommonLayout } from '@/components/common/layout/Layout';
 import { useRouter } from 'next/router';
 import { API } from '@/api';
@@ -7,14 +6,19 @@ import { AuthAPI } from '@/types/auth';
 import { Button } from '@/components/common/button/Button';
 import { AppleIcon, GoogleIcon } from '@/assets/icons/icons';
 import { emailRegExp, passwordRegExp } from '@/utils/regex';
-import Form from '@/components/common/form/form';
-import Label from '@/components/common/label/label';
+import Form from '@/components/common/form/Form';
+import Label from '@/components/common/label/Label';
 import Input from '@/components/common/input/Input';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import styles from './index.style';
 
 export default function LoginRoot() {
 	const router = useRouter();
-	const { register, handleSubmit } = useForm<AuthAPI.TLogin>();
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm<AuthAPI.TLogin>();
 
 	const onSubmit: SubmitHandler<AuthAPI.TLogin> = async (data) => {
 		try {
@@ -35,15 +39,22 @@ export default function LoginRoot() {
 		router.push('/user/find');
 	};
 
+	console.log(errors);
+
 	return (
 		<CommonLayout header={<Header headerName='로그인' />}>
 			<Form onSubmit={handleSubmit(onSubmit)}>
 				<Label htmlFor='email'>이메일</Label>
 				<Input
 					id='email'
-					{...register('email', { pattern: emailRegExp })}
-					required
+					{...register('email', {
+						pattern: {
+							value: emailRegExp,
+							message: '이메일 양식에 맞게 입력해 주세요.',
+						},
+					})}
 				/>
+				<span>{errors.email?.message}</span>
 
 				<Label htmlFor='password'>비밀번호</Label>
 				<Input

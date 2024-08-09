@@ -1,5 +1,6 @@
+'use client';
 import { FormHTMLAttributes, PropsWithChildren } from 'react';
-import { form } from './form.css';
+import { form } from './Form.style';
 
 export default function Form(
 	props: PropsWithChildren & FormHTMLAttributes<HTMLFormElement>

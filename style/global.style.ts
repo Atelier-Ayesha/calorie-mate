@@ -1,9 +1,10 @@
-import { css } from '@emotion/react';
+import { css } from '@emotion/css';
 
 const globalStyle = css`
 	html,
 	body {
 		height: '100%';
+		margin: 0;
 	}
 	ol,
 	ul {
@@ -13,7 +14,7 @@ const globalStyle = css`
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
-		font-family: 'Pretendard Variable';
+		font-family: 'Pretendard';
 	}
 `;
 

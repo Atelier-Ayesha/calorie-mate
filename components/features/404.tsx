@@ -1,9 +1,9 @@
 import errorImage from '@/assets/images/error_image.webp';
-import styles from './404.css';
-import { Header } from '@/components/common/header/Header';
 import { CommonLayout } from '../common/layout/Layout';
-import { Button } from '../common/button/Button';
 import { useRouter } from 'next/router';
+import { Header } from '../common/header/Header';
+import { Button } from '../common/button/Button';
+import styles from './404.style';
 
 export default function ErrorRoot() {
 	const router = useRouter();

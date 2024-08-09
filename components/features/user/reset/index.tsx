@@ -1,16 +1,15 @@
-'use client';
 import { Header } from '@/components/common/header/Header';
-import styles from './index.css';
 import { API } from '@/api';
 import { useRouter } from 'next/router';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { AuthAPI } from '@/types/auth';
 import { CommonLayout } from '@/components/common/layout/Layout';
 import { Button } from '@/components/common/button/Button';
-import Form from '@/components/common/form/form';
-import Label from '@/components/common/label/label';
+import Form from '@/components/common/form/Form';
+import Label from '@/components/common/label/Label';
 import Input from '@/components/common/input/Input';
 import { passwordRegExp } from '@/utils/regex';
+import styles from './index.style';
 
 export default function ResetRoot() {
 	const router = useRouter();

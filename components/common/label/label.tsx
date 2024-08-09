@@ -1,5 +1,6 @@
+'use client';
 import { LabelHTMLAttributes, PropsWithChildren } from 'react';
-import { label } from './label.css';
+import { label } from './Label.style';
 
 type TLabel = PropsWithChildren & LabelHTMLAttributes<HTMLLabelElement>;
 

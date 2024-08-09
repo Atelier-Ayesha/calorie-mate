@@ -1,5 +1,6 @@
+'use client';
 import { ButtonHTMLAttributes, PropsWithChildren, ReactNode } from 'react';
-import { button } from './Button.css';
+import { button } from './Button.style';
 
 type Props = ButtonHTMLAttributes<HTMLButtonElement> &
 	PropsWithChildren<{
