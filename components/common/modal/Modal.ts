@@ -1,8 +1,8 @@
 import { colors } from '@/style/colors/colors';
 import { fonts } from '@/style/fonts/fonts';
-import { css } from '@emotion/css';
+import styled from '@emotion/styled';
 
-export const overlay = css`
+export const Overlay = styled.div`
 	width: 100%;
 	height: 100vh;
 	background-color: ${colors.overlay};
@@ -14,7 +14,7 @@ export const overlay = css`
 	top: 0;
 `;
 
-export const container = css`
+export const Container = styled.div`
 	background-color: ${colors.white};
 	display: flex;
 	flex-direction: column;
@@ -31,7 +31,7 @@ export const container = css`
 	z-index: 20;
 `;
 
-export const modalHeader = css`
+export const ModalHeader = styled.header`
 	height: 2px;
 	width: 200px;
 	position: relative;
@@ -41,15 +41,7 @@ export const modalHeader = css`
 	margin: 8px 0;
 `;
 
-// variants: {
-// 	color: {
-// 		alert: { background-color: #C80000 },
-// 		confirm: { background-color: #5DAE48 },
-// 		info: { background-color: #4285F4 },
-// 	},
-// },
-
-export const iconArea = css`
+export const IconArea = styled.div`
 	position: absolute;
 	z-index: 5;
 	top: -11px;
@@ -59,21 +51,21 @@ export const iconArea = css`
 	width: 24px;
 `;
 
-export const title = css`
+export const Title = styled.p`
 	${fonts.semibold20}
 	font-family: "Pretendard";
 	color: ${colors.text};
 	margin: 8px 0;
 `;
 
-export const content = css`
+export const Content = styled.div`
 	${fonts.light14}
 	font-family: "Pretendard";
 	color: ${colors.text};
 	margin: 12px 0;
 `;
 
-export const buttonArea = css`
+export const ButtonArea = styled.div`
 	display: flex;
 	width: 100%;
 	gap: 16px;

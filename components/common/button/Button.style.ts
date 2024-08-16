@@ -1,7 +1,7 @@
 import { fonts } from '@/style/fonts/fonts';
-import { css } from '@emotion/css';
+import styled from '@emotion/styled';
 
-export const button = css`
+export const Button = styled.button`
 	display: flex;
 	justify-content: center;
 	align-items: center;

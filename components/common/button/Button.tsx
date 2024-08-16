@@ -1,6 +1,5 @@
-'use client';
 import { ButtonHTMLAttributes, PropsWithChildren, ReactNode } from 'react';
-import { button } from './Button.style';
+import * as S from './Button.style';
 
 type Props = ButtonHTMLAttributes<HTMLButtonElement> &
 	PropsWithChildren<{
@@ -16,9 +15,5 @@ type Props = ButtonHTMLAttributes<HTMLButtonElement> &
 
 export function Button(props: Props) {
 	const { colorTheme, children, ...rest } = props;
-	return (
-		<button className={button} {...rest}>
-			{children}
-		</button>
-	);
+	return <S.Button {...rest}>{children}</S.Button>;
 }

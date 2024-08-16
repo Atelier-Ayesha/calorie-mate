@@ -1,7 +1,15 @@
-'use client';
 import { InputHTMLAttributes } from 'react';
-import { input } from './Input.style';
+import * as S from './Input.style';
+import { FieldValues, ControllerRenderProps } from 'react-hook-form';
 
-export default function Input(props: InputHTMLAttributes<HTMLInputElement>) {
-	return <input className={input} {...props} />;
+interface InputProps<T extends FieldValues>
+	extends InputHTMLAttributes<HTMLInputElement> {
+	field?: ControllerRenderProps<T, any>;
+}
+
+export default function Input<T extends FieldValues = FieldValues>({
+	field,
+	...props
+}: InputProps<T>) {
+	return <S.Input {...field} {...props} />;
 }

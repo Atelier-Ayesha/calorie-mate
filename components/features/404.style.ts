@@ -1,6 +1,6 @@
-import { css } from '@emotion/css';
+import styled from '@emotion/styled';
 
-export const wrapper = css`
+export const Wrapper = styled.section`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -8,18 +8,18 @@ export const wrapper = css`
 	padding: 0 16px;
 `;
 
-export const imageBox = css`
+export const ImageBox = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	margin: 120px 25px 48px;
 `;
 
-export const image = css`
+export const Image = styled.img`
 	max-width: 300px;
 `;
 
-export const textBox = css`
+export const TextBox = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -28,11 +28,3 @@ export const textBox = css`
 	margin: 24px 0 48px;
 `;
 
-const styles = {
-	wrapper,
-	imageBox,
-	image,
-	textBox,
-};
-
-export default styles;

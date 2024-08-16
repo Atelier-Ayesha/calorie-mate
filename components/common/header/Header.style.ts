@@ -1,14 +1,14 @@
 import { colors } from '@/style/colors/colors';
-import { css } from '@emotion/css';
+import styled from '@emotion/styled';
 
-export const wrapper = css`
+export const Wrapper = styled.header`
 	position: fixed;
 	width: 100%;
 	height: 84px;
 	top: 0;
 `;
 
-export const topBox = css`
+export const TopBox = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -20,7 +20,7 @@ export const topBox = css`
 	padding-right: 20px;
 `;
 
-export const triangle = css`
+export const Triangle = styled.div`
 	width: 0;
 	height: 0;
 	border-top: 12px solid ${colors.secondary};

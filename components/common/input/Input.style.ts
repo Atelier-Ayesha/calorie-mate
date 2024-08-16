@@ -1,8 +1,9 @@
 import { colors } from '@/style/colors/colors';
 import { fonts } from '@/style/fonts/fonts';
 import { css } from '@emotion/css';
+import styled from '@emotion/styled'
 
-export const input = css`
+export const Input = styled.input`
 	height: 44px;
 	background: ${colors.input};
 	padding: 12px 16px;

@@ -6,15 +6,16 @@ import { AuthAPI } from '@/types/auth';
 import { Button } from '@/components/common/button/Button';
 import { AppleIcon, GoogleIcon } from '@/assets/icons/icons';
 import { emailRegExp, passwordRegExp } from '@/utils/regex';
-import Form from '@/components/common/form/Form';
-import Label from '@/components/common/label/Label';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+import * as S from './style';
+import { Form } from '@/components/common/form/form';
+import { Label } from '@/components/common/label/label';
 import Input from '@/components/common/input/Input';
-import { SubmitHandler, useForm } from 'react-hook-form';
-import styles from './index.style';
 
 export default function LoginRoot() {
 	const router = useRouter();
 	const {
+		control,
 		register,
 		handleSubmit,
 		formState: { errors },
@@ -31,70 +32,59 @@ export default function LoginRoot() {
 		}
 	};
 
-	const handleMoveToRegister = () => {
-		router.push('/user/register');
-	};
+	const handleMoveToRegister = () => router.push('/user/register');
 
-	const handleMoveToFind = () => {
-		router.push('/user/find');
-	};
-
-	console.log(errors);
+	const handleMoveToFind = () => router.push('/user/find');
 
 	return (
 		<CommonLayout header={<Header headerName='로그인' />}>
 			<Form onSubmit={handleSubmit(onSubmit)}>
 				<Label htmlFor='email'>이메일</Label>
-				<Input
-					id='email'
-					{...register('email', {
+				<Controller<AuthAPI.TLogin>
+					control={control}
+					name='email'
+					rules={{
 						pattern: {
 							value: emailRegExp,
 							message: '이메일 양식에 맞게 입력해 주세요.',
 						},
-					})}
+					}}
+					render={({ field }) => (
+						<Input<AuthAPI.TLogin> id='email' field={field} />
+					)}
 				/>
 				<span>{errors.email?.message}</span>
 
 				<Label htmlFor='password'>비밀번호</Label>
-				<Input
-					id='password'
-					{...register('password', { pattern: passwordRegExp })}
-					required
-				/>
 
+				<Controller<AuthAPI.TLogin>
+					control={control}
+					name='password'
+					rules={{ pattern: passwordRegExp }}
+					render={({ field }) => (
+						<Input<AuthAPI.TLogin> id='password' field={field} required />
+					)}
+				/>
 				<Button colorTheme='primary'>로그인</Button>
 			</Form>
-			<button
-				type='button'
-				className={styles.findPasswordButton}
-				onClick={handleMoveToFind}
-			>
+			<S.FindPasswordButton type='button' onClick={handleMoveToFind}>
 				비밀번호가 기억나지 않으세요?
-			</button>
+			</S.FindPasswordButton>
 
-			<div className={styles.bottomBox}>
+			<S.BottomBox>
 				<span>- 소셜 계정으로 로그인 -</span>
-				<div className={styles.rowBox}>
-					<button
-						title='구글 계정으로 로그인'
-						className={styles.oauthButton}
-						type='button'
-					>
+				<S.RowBox>
+					<S.OauthButton title='구글 계정으로 로그인'>
 						<GoogleIcon />
-					</button>
-					<button
-						title='애플 계정으로 로그인'
-						className={styles.oauthButton}
-						type='button'
-					>
+					</S.OauthButton>
+					<S.OauthButton title='애플 계정으로 로그인'>
 						<AppleIcon />
-					</button>
-				</div>
+					</S.OauthButton>
+				</S.RowBox>
 				<Button colorTheme='border' onClick={handleMoveToRegister}>
 					이메일로 가입하기
 				</Button>
-			</div>
+			</S.BottomBox>
 		</CommonLayout>
 	);
 }

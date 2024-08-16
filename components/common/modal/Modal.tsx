@@ -1,20 +1,10 @@
-'use client';
-import { AlertIcon, ConfirmIcon, InfoIcon } from '@/assets/icons/icons';
 import React, {
 	PropsWithChildren,
 	createContext,
 	useContext,
 	useState,
 } from 'react';
-import {
-	buttonArea,
-	container,
-	content,
-	overlay,
-	iconArea,
-	modalHeader,
-	title,
-} from './Modal';
+import * as S from './Modal';
 import Portal from './Portal';
 import { Button } from '../button/Button';
 
@@ -54,45 +44,28 @@ const Modal = (props: ModalProps) => {
 
 	return (
 		<Portal container={document.body}>
-			<div className={container}>{children}</div>
-			<div className={overlay} />
+			<S.Container>{children}</S.Container>
+			<S.Overlay />
 		</Portal>
-	);
-};
-
-// Modal Header
-export const ModalHeader = ({ ...props }: PropsWithChildren<{}>) => {
-	const { modalType } = useModalContext();
-
-	const headerIcon = {
-		alert: <AlertIcon />,
-		info: <InfoIcon />,
-		confirm: <ConfirmIcon />,
-	};
-
-	return (
-		<div className={modalHeader({ color: modalType })}>
-			<div className={iconArea}>{headerIcon[modalType]}</div>
-		</div>
 	);
 };
 
 // Modal Title
 export const Title = ({ children, ...props }: PropsWithChildren<{}>) => {
-	return <h3 className={title}>{children}</h3>;
+	return <S.Title>{children}</S.Title>;
 };
 
 // Modal Content
 export const Content = ({ children, ...props }: PropsWithChildren<{}>) => {
-	return <p className={content}>{children}</p>;
+	return <S.Content>{children}</S.Content>;
 };
 
 // Modal Button Area
 export const ButtonArea = ({ children, ...props }: PropsWithChildren<{}>) => {
-	return <div className={buttonArea}>{children}</div>;
+	return <S.ButtonArea>{children}</S.ButtonArea>;
 };
 
-Modal.ModalHeader = ModalHeader;
+// Modal.ModalHeader = ModalHeader;
 Modal.Title = Title;
 Modal.Content = Content;
 Modal.ButtonArea = ButtonArea;
