@@ -1,23 +1,14 @@
 import { colors } from '@/style/colors/colors';
 import { fonts } from '@/style/fonts/fonts';
-import { css } from '@emotion/css';
+import styled from '@emotion/styled';
 
-const pageTitle = css`
-	font-family: 'Pretendard';
+export const Title = styled.p`
 	${fonts.medium20}
 	color: ${colors.text};
 `;
 
-const pageDesc = css`
-	font-family: 'Pretendard';
+export const Desc = styled.p`
 	${fonts.light14}
 	color: ${colors.text};
 	white-space: pre-wrap;
 `;
-
-const styles = {
-	pageTitle,
-	pageDesc,
-};
-
-export default styles;

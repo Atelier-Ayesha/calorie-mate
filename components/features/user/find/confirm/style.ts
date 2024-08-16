@@ -1,8 +1,8 @@
 import { colors } from '@/style/colors/colors';
 import { fonts } from '@/style/fonts/fonts';
-import { css } from '@emotion/css';
+import styled from '@emotion/styled';
 
-const wrapper = css`
+export const Wrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 	margin-top: 108px;
@@ -10,23 +10,13 @@ const wrapper = css`
 	gap: 20px;
 `;
 
-const pageTitle = css`
-	font-family: 'Pretendard';
+export const Title = styled.p`
 	${fonts.medium20}
 	color: ${colors.text};
 `;
 
-const pageDesc = css`
-	font-family: 'Pretendard';
+export const Desc = styled.p`
 	${fonts.light14}
 	color: ${colors.text};
 	white-space: pre-wrap;
 `;
-
-const styles = {
-	wrapper,
-	pageTitle,
-	pageDesc,
-};
-
-export default styles;

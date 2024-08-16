@@ -3,6 +3,7 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
+		"prepare": "panda codegen",
 		"dev": "next dev",
 		"build": "next build && pm2 start npm --name 'CLIENT' start",
 		"start": "next start",
@@ -12,14 +13,14 @@
 		"build-storybook": "storybook build"
 	},
 	"dependencies": {
+		"@emotion/cache": "^11.13.1",
 		"@emotion/css": "^11.13.0",
 		"@emotion/react": "^11.13.0",
-		"@react-oauth/google": "^0.12.1",
+		"@emotion/styled": "^11.13.0",
 		"@tanstack/react-query": "^5.17.19",
 		"axios": "^1.6.4",
 		"next": "14.0.4",
 		"react": "^18",
-		"react-apple-signin-auth": "^1.1.0",
 		"react-dom": "^18",
 		"react-hook-form": "^7.52.2",
 		"zustand": "^4.4.7"
@@ -41,7 +42,6 @@
 		"@types/react-dom": "^18",
 		"@typescript-eslint/eslint-plugin": "^6.17.0",
 		"@typescript-eslint/parser": "^6.17.0",
-		"@vanilla-extract/next-plugin": "^2.3.3",
 		"eslint": "^8",
 		"eslint-config-next": "14.0.4",
 		"eslint-plugin-jsx-a11y": "^6.8.0",

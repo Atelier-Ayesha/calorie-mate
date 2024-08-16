@@ -1,8 +1,8 @@
 import { colors } from '@/style/colors/colors';
 import { fonts } from '@/style/fonts/fonts';
-import { css } from '@emotion/css';
+import styled from '@emotion/styled';
 
-const findPasswordButton = css`
+export const FindPasswordButton = styled.button`
 	background: none;
 	cursor: pointer;
 	border: none;
@@ -12,7 +12,7 @@ const findPasswordButton = css`
 	${fonts.light12}
 `;
 
-const bottomBox = css`
+export const BottomBox = styled.div`
 	display: flex;
 	flex-direction: column;
 	padding: 0 16px;
@@ -25,7 +25,7 @@ const bottomBox = css`
 	${fonts.light12}
 `;
 
-const rowBox = css`
+export const RowBox = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -33,7 +33,7 @@ const rowBox = css`
 	margin-bottom: 8px;
 `;
 
-const oauthButton = css`
+export const OauthButton = styled.button`
 	height: 32px;
 	width: 32px;
 	border-radius: 100%;
@@ -43,12 +43,3 @@ const oauthButton = css`
 	margin: 0px;
 	cursor: pointer;
 `;
-
-const styles = {
-	findPasswordButton,
-	bottomBox,
-	rowBox,
-	oauthButton,
-};
-
-export default styles;

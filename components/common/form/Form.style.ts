@@ -1,6 +1,6 @@
-import { css } from '@emotion/css';
+import styled from '@emotion/styled';
 
-export const form = css`
+export const Form = styled.form`
 	display: flex;
 	flex-direction: column;
 	margin-top: 108px;

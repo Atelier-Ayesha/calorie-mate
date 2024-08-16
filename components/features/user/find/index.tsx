@@ -1,15 +1,15 @@
 import { Header } from '@/components/common/header/Header';
 import { API } from '@/api';
 import { useRouter } from 'next/router';
-import Label from '@/components/common/label/Label';
-import Input from '@/components/common/input/Input';
-import Form from '@/components/common/form/Form';
 import { AuthAPI } from '@/types/auth';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { emailRegExp } from '@/utils/regex';
 import { Button } from '@/components/common/button/Button';
 import { CommonLayout } from '@/components/common/layout/Layout';
-import styles from './index.style';
+import * as S from './style';
+import { Form } from '@/components/common/form/form';
+import { Label } from '@/components/common/label/label';
+import Input from '@/components/common/input/Input';
 
 export default function FindRoot() {
 	const router = useRouter();
@@ -25,19 +25,17 @@ export default function FindRoot() {
 		}
 	};
 
-	const handleBack = () => {
-		return router.back();
-	};
+	const handleBack = () => router.back();
 
 	return (
 		<CommonLayout header={<Header headerName='비밀번호 찾기' />}>
 			<Form onSubmit={handleSubmit(onSubmit)}>
-				<div className={styles.description}>
-					<h3 className={styles.pageTitle}>이메일을 입력해주세요.</h3>
-					<p className={styles.pageDesc}>
+				<S.Description>
+					<S.Title>이메일을 입력해주세요.</S.Title>
+					<S.Desc>
 						{'비밀번호를 재설정하기 위해\n가입했던 이메일을 입력해 주세요.'}
-					</p>
-				</div>
+					</S.Desc>
+				</S.Description>
 				<Label htmlFor='email'>이메일</Label>
 				<Input
 					id='email'
