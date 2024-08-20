@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# 마지막 커밋 메시지 가져오기
+commit_msg=$(git log -1 --pretty=%B)
+
+# 마지막 커밋의 변경된 파일 목록 가져오기
+files=$(git diff-tree --no-commit-id --name-only -r HEAD)
+
+# 웹훅 URL (실제 URL로 변경해야 함)
+webhook_url="https://discord.com/api/webhooks/1275371120203141223/SwN1ZforfVZthV76k7ihUOxA_S63WVmhgwIVrbi6hkCUAnq-UpuDXYhrRiHzJjzZ8e4a"
+
+# 웹훅으로 데이터 전송
+curl -X POST -H "Content-Type: application/json" -d "{\"commit_message\": \"$commit_msg\", \"files\": \"$files\"}" $webhook_url
