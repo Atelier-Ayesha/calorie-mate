@@ -9,4 +9,5 @@ export const colors = {
 	white: '#FFFFFF',
 	input: '#F6F6F6',
 	overlay: '#0000004D',
+	error: '#FF0000',
 };
