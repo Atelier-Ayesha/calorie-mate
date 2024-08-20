@@ -2,7 +2,7 @@
 name: Review Template
 about: 리뷰용 템플릿입니다.작업 내용과 리뷰 받을 파일 경로를 명시해주세요.
 title: '[Review]'
-labels: review
+labels: Review
 ---
 
 ## 작업 사항
