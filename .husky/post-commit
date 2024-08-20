@@ -5,7 +5,7 @@
 commit_hash=$(git rev-parse HEAD)
 commit_msg=$(git log -1 --pretty=%B)
 author=$(git log -1 --pretty=format:'%an')
-files=$(git diff-tree --no-commit-id --name-only -r HEAD | sed ':a;N;$!ba;s/\n/, /g')
+files=$(git diff-tree --no-commit-id --name-only -r HEAD | paste -sd ", " -)
 
 # 현재 브랜치 이름 가져오기
 branch=$(git rev-parse --abbrev-ref HEAD)
@@ -14,7 +14,7 @@ branch=$(git rev-parse --abbrev-ref HEAD)
 webhook_url="https://discord.com/api/webhooks/1275371120203141223/SwN1ZforfVZthV76k7ihUOxA_S63WVmhgwIVrbi6hkCUAnq-UpuDXYhrRiHzJjzZ8e4a"
 
 # 디스코드 메시지 생성
-read -r -d '' payload << EOM
+payload=$(cat <<EOF
 {
   "embeds": [{
     "title": "새로운 커밋이 푸시되었습니다",
@@ -43,7 +43,8 @@ read -r -d '' payload << EOM
     ]
   }]
 }
-EOM
+EOF
+)
 
 # 디스코드 웹훅으로 데이터 전송
-curl -H "Content-Type: application/json" -d "$payload" $webhook_url
+curl -H "Content-Type: application/json" -d "$payload" "$webhook_url"
