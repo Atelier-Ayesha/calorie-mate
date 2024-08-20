@@ -6,6 +6,7 @@ import { AppProps } from 'next/app';
 const cache = createCache({ key: 'next' });
 
 const App = ({ Component, pageProps }: AppProps) => {
+	console.log('웹훅 테스트');
 	return (
 		<CacheProvider value={cache}>
 			{globalStyles}
