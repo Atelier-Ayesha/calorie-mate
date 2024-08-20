@@ -1,12 +1,9 @@
 import { colors } from '@/style/colors/colors';
 import { fonts } from '@/style/fonts/fonts';
-import { css } from '@emotion/css';
+import styled from '@emotion/styled';
 
-export const Label = css`
-	display: flex;
-	flex-direction: column;
+export const Label = styled.label`
 	font-family: 'Pretendard';
 	color: ${colors.text};
-	gap: 8px;
 	${fonts.medium12}
 `;
