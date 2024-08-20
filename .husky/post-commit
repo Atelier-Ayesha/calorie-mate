@@ -11,7 +11,7 @@ files=$(git diff-tree --no-commit-id --name-only -r HEAD | sed ':a;N;$!ba;s/\n/,
 branch=$(git rev-parse --abbrev-ref HEAD)
 
 # 디스코드 웹훅 URL (실제 URL로 변경해야 함)
-webhook_url="https://discord.com/api/webhooks/your/webhook/url"
+webhook_url="https://discord.com/api/webhooks/1275371120203141223/SwN1ZforfVZthV76k7ihUOxA_S63WVmhgwIVrbi6hkCUAnq-UpuDXYhrRiHzJjzZ8e4a"
 
 # 디스코드 메시지 생성
 read -r -d '' payload << EOM
