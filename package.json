@@ -10,7 +10,8 @@
 		"lint": "next lint",
 		"test": "jest --watch",
 		"storybook": "storybook dev -p 6006",
-		"build-storybook": "storybook build"
+		"build-storybook": "storybook build",
+		"prepare": "husky install"
 	},
 	"dependencies": {
 		"@emotion/cache": "^11.13.1",
@@ -52,6 +53,7 @@
 		"jest-environment-jsdom": "^29.7.0",
 		"msw": "^2.1.4",
 		"storybook": "^7.6.7",
-		"typescript": "^5"
+		"typescript": "^5",
+		"husky": "^8.0.0"
 	}
 }
