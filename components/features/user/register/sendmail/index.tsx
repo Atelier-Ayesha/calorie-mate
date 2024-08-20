@@ -3,19 +3,26 @@ import { CommonLayout } from '@/components/common/layout/Layout';
 import { useRouter } from 'next/router';
 import { API } from '@/api';
 import { Button } from '@/components/common/button/Button';
-import Label from '@/components/common/label/Label';
 import Input from '@/components/common/input/Input';
-import Form from '@/components/common/form/Form';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { AuthAPI } from '@/types/auth';
+import { ErrorText } from '@/components/common/errortext/ErrorText';
+import { Form } from '@/components/common/form/form';
+import { Label } from '@/components/common/label/label';
+import * as S from './style';
 
 export default function RegisterSendMailRoot() {
 	const router = useRouter();
-	const { register, handleSubmit } = useForm<AuthAPI.TVerify>();
+	const { email } = router.query as Record<string, string>;
+	const {
+		control,
+		handleSubmit,
+		formState: { errors, isValid },
+	} = useForm<AuthAPI.TVerify>();
 
 	const onSubmit: SubmitHandler<AuthAPI.TVerify> = async (data) => {
 		try {
-			await API.Auth.verify(data);
+			await API.Auth.verify({ ...data, email });
 			// TODO: 온보딩 진행 여부에 따라 route 분기처리
 			return;
 		} catch (error) {
@@ -32,7 +39,16 @@ export default function RegisterSendMailRoot() {
 					아래에 인증번호를 입력 하신 뒤 본인 인증 절차를 진행해주세요!
 				</h3>
 				<Label htmlFor='code'>인증 번호</Label>
-				<Input id='code' {...register('code', { max: 8 })} required />
+				<S.FlexCol>
+					<Controller<AuthAPI.TVerify>
+						control={control}
+						name='code'
+						render={({ field }) => (
+							<Input<AuthAPI.TVerify> id='code' type='number' field={field} />
+						)}
+					/>
+					<ErrorText>{errors.code?.message}</ErrorText>
+				</S.FlexCol>
 
 				<Button type='submit' colorTheme='primary'>
 					본인 인증 확인

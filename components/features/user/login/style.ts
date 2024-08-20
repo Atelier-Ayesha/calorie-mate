@@ -43,3 +43,8 @@ export const OauthButton = styled.button`
 	margin: 0px;
 	cursor: pointer;
 `;
+
+export const FlexCol = styled.div`
+	display: flex;
+	flex-direction: column;
+`;
