@@ -1,25 +1,23 @@
-'use client';
 import { Header } from '@/components/common/header/Header';
-import InputWrapper from '@/components/common/input/Input';
-import styles from './index.css';
-import { ChangeEvent, FormEvent, useState } from 'react';
 import { API } from '@/api';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/router';
+import { AuthAPI } from '@/types/auth';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { emailRegExp } from '@/utils/regex';
+import { Button } from '@/components/common/button/Button';
+import { CommonLayout } from '@/components/common/layout/Layout';
+import * as S from './style';
+import { Form } from '@/components/common/form/form';
+import { Label } from '@/components/common/label/label';
+import Input from '@/components/common/input/Input';
 
 export default function FindRoot() {
 	const router = useRouter();
-	const [formInput, setFormInput] = useState({ email: '' });
+	const { register, handleSubmit } = useForm<AuthAPI.TUserMail>();
 
-	const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-		const { name, value } = e.target;
-		setFormInput((s) => ({ ...s, [name]: value }));
-	};
-
-	const handleSubmit = async (e: FormEvent) => {
-		e.preventDefault();
-
+	const onSubmit: SubmitHandler<AuthAPI.TUserMail> = async (data) => {
 		try {
-			await API.Auth.sendmail(formInput);
+			await API.Auth.sendmail(data);
 			router.push('/user/find/confirm');
 			return;
 		} catch (error) {
@@ -27,32 +25,30 @@ export default function FindRoot() {
 		}
 	};
 
-	return (
-		<section className={styles.wrapper}>
-			<Header headerName='비밀번호 찾기' />
-			<div className={styles.description}>
-				<h3 className={styles.pageTitle}>이메일을 입력해주세요.</h3>
-				<p className={styles.pageDesc}>
-					{'비밀번호를 재설정하기 위해\n가입했던 이메일을 입력해 주세요.'}
-				</p>
-			</div>
+	const handleBack = () => router.back();
 
-			<form className={styles.form} onSubmit={handleSubmit}>
-				<InputWrapper
-					name='email'
-					onChange={(e) => handleInputChange(e)}
-					value={formInput.email}
-					type='text'
-				>
-					<InputWrapper.Label>
-						이메일
-						<InputWrapper.Input />
-					</InputWrapper.Label>
-				</InputWrapper>
-				<button type='submit' className={styles.button}>
+	return (
+		<CommonLayout header={<Header headerName='비밀번호 찾기' />}>
+			<Form onSubmit={handleSubmit(onSubmit)}>
+				<S.Description>
+					<S.Title>이메일을 입력해주세요.</S.Title>
+					<S.Desc>
+						{'비밀번호를 재설정하기 위해\n가입했던 이메일을 입력해 주세요.'}
+					</S.Desc>
+				</S.Description>
+				<Label htmlFor='email'>이메일</Label>
+				<Input
+					id='email'
+					{...register('email', { pattern: emailRegExp })}
+					required
+				/>
+				<Button type='submit' colorTheme='primary'>
 					이메일 보내기
-				</button>
-			</form>
-		</section>
+				</Button>
+				<Button type='button' colorTheme='invalid' onClick={handleBack}>
+					돌아가기
+				</Button>
+			</Form>
+		</CommonLayout>
 	);
 }

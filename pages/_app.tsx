@@ -1,13 +1,17 @@
+import { globalStyles } from '@/style/globalstyle';
+import createCache from '@emotion/cache';
+import { CacheProvider } from '@emotion/react';
 import { AppProps } from 'next/app';
-import '@/style/global.css';
-import { GoogleOAuthProvider, useGoogleLogin } from '@react-oauth/google';
-import { config } from '@/config';
 
-export default function App({ Component, pageProps }: AppProps) {
-	//Todo google login
+const cache = createCache({ key: 'next' });
+
+const App = ({ Component, pageProps }: AppProps) => {
 	return (
-		// <GoogleOAuthProvider clientId={config?.googleId}>
-		<Component {...pageProps} />
-		// </GoogleOAuthProvider>
+		<CacheProvider value={cache}>
+			{globalStyles}
+			<Component {...pageProps} />
+		</CacheProvider>
 	);
-}
+};
+
+export default App;

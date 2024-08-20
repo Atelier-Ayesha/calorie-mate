@@ -1,7 +1,5 @@
 import { PropsWithChildren, ReactNode } from 'react';
-import { Header } from '../header/Header';
-import { themeClass } from '@/style/theme/theme.css';
-import * as styles from './Layout.css';
+import * as S from './Layout.style';
 
 interface Props {
 	header?: ReactNode;
@@ -10,13 +8,12 @@ interface Props {
 
 export function CommonLayout(props: PropsWithChildren<Props>) {
 	const { header, children, footer } = props;
+
 	return (
-		<main className={themeClass}>
-			<section className={styles.layout}>
-				{header}
-				{children}
-				{footer}
-			</section>
-		</main>
+		<S.Layout>
+			{header}
+			{typeof children !== undefined && children}
+			{typeof footer !== undefined && footer}
+		</S.Layout>
 	);
 }
