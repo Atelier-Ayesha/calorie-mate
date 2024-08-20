@@ -27,3 +27,8 @@ export const Desc = styled.p`
 	color: ${colors.text};
 	white-space: pre-wrap;
 `;
+
+export const FlexCol = styled.div`
+	display: flex;
+	flex-direction: column;
+`;

@@ -2,7 +2,7 @@ import { Header } from '@/components/common/header/Header';
 import { API } from '@/api';
 import { useRouter } from 'next/router';
 import { AuthAPI } from '@/types/auth';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { emailRegExp } from '@/utils/regex';
 import { Button } from '@/components/common/button/Button';
 import { CommonLayout } from '@/components/common/layout/Layout';
@@ -10,10 +10,15 @@ import * as S from './style';
 import { Form } from '@/components/common/form/form';
 import { Label } from '@/components/common/label/label';
 import Input from '@/components/common/input/Input';
+import { ErrorText } from '@/components/common/errortext/ErrorText';
 
 export default function FindRoot() {
 	const router = useRouter();
-	const { register, handleSubmit } = useForm<AuthAPI.TUserMail>();
+	const {
+		control,
+		handleSubmit,
+		formState: { errors },
+	} = useForm<AuthAPI.TUserMail>();
 
 	const onSubmit: SubmitHandler<AuthAPI.TUserMail> = async (data) => {
 		try {
@@ -36,12 +41,23 @@ export default function FindRoot() {
 						{'비밀번호를 재설정하기 위해\n가입했던 이메일을 입력해 주세요.'}
 					</S.Desc>
 				</S.Description>
-				<Label htmlFor='email'>이메일</Label>
-				<Input
-					id='email'
-					{...register('email', { pattern: emailRegExp })}
-					required
-				/>
+				<S.FlexCol>
+					<Controller<AuthAPI.TUserMail>
+						control={control}
+						name='email'
+						rules={{
+							pattern: {
+								value: emailRegExp,
+								message: '이메일 양식에 맞게 입력해 주세요.',
+							},
+						}}
+						render={({ field }) => (
+							<Input<AuthAPI.TUserMail> id='email' field={field} />
+						)}
+					/>
+					<ErrorText>{errors.email?.message}</ErrorText>
+				</S.FlexCol>
+
 				<Button type='submit' colorTheme='primary'>
 					이메일 보내기
 				</Button>
