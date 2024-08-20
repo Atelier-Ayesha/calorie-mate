@@ -18,17 +18,17 @@ export const login = (credential: AuthAPI.TLogin) => {
 		method: 'post',
 		url: '/user/auth/login',
 		data: {
-			credential,
+			...credential,
 		},
 	});
 };
 
-export const verify = (credential: AuthAPI.TUserMail) => {
+export const verifyRegister = (credential: AuthAPI.TVerify) => {
 	return instance({
 		method: 'post',
 		url: '/user/auth/verify',
 		data: {
-			credential,
+			...credential,
 		},
 	});
 };
@@ -38,7 +38,17 @@ export const sendmail = (credential: AuthAPI.TUserMail) => {
 		method: 'post',
 		url: '/user/auth/sendmail',
 		data: {
-			credential,
+			...credential,
+		},
+	});
+};
+
+export const verifyFind = (credential: AuthAPI.TVerify) => {
+	return instance({
+		method: 'post',
+		url: '/user/auth/verify',
+		data: {
+			...credential,
 		},
 	});
 };
@@ -48,7 +58,7 @@ export const resetpassword = (credential: AuthAPI.TResetPassword) => {
 		method: 'post',
 		url: '/user/auth/resetpassword',
 		data: {
-			credential,
+			...credential,
 		},
 	});
 };
